@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Creator – ParadiseNetwork.us</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .creator-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    .creator-card {
+      background: #f5f5f5;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 1.2rem 1.5rem;
+      min-width: 220px;
+      max-width: 320px;
+      flex: 1 1 260px;
+      text-align: center;
+      transition: background 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .creator-card img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid var(--primary);
+      background: #0000005b;
+    }
+    .creator-card h3 {
+      margin: 0 0 0.4rem 0;
+      font-size: 1.2rem;
+    }
+    .creator-card .desc {
+      font-size: 0.98rem;
+      margin-bottom: 1rem;
+      color: #444;
+    }
+    .creator-links {
+      display: flex;
+      gap: 0.7rem;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+    .creator-link-btn {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 5px;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .creator-link-btn.youtube { background: #FF0000; }
+    .creator-link-btn.tiktok { background: #000; }
+    .creator-link-btn.twitch { background: #9147ff; }
+    .creator-link-btn.youtube:hover { background: #cc0000; }
+    .creator-link-btn.tiktok:hover { background: #222; }
+    .creator-link-btn.twitch:hover { background: #772ce8; }
+    @media (max-width: 700px) {
+      .creator-list { flex-direction: column; gap: 1.2rem; }
+      .creator-card { min-width: unset; max-width: 100%; }
+    }
+    .darkmode .creator-card { background: #23272b; color: #fff; }
+    .darkmode .creator-card .desc { color: #ccc; }
+  </style>
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+  <button class="hamburger" id="hamburger" aria-label="Navigation öffnen/schließen"><span></span></button>
+  <header>
+    <h1>Content Creator</h1>
+    <p>Unsere Community-Helden auf YouTube, Twitch & Co.</p>
+  </header>
+  <nav id="mainNav" class="collapsed">
+    <a href="index.html">Startseite</a>
+    <a href="infos.html">Infos</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="guides.html">Guides & Hilfe</a>
+    <a href="events.html">Events</a>
+    <a href="karte.html">Karte</a>
+    <a href="bewerben.html">Bewerben</a>
+    <a href="creator.html">Content Creator</a>
+    <a href="social.html">Social Media</a>
+  </nav>
+  <main>
+    <section class="card">
+      <h2>Content Creator</h2>
+      <p>Unsere Community-Helden auf YouTube, Twitch & Co.</p>
+      <!-- Liste der Creator, Links, ggf. Bewerbungsinfos -->
+    </section>
+
+    <section class="card" style="text-align:center;">
+      <h2>Unsere Creator</h2>
+      <div class="creator-list">
+        <div class="creator-card">
+          <img src="bild/team/coro.png" alt="Corotexus">
+          <h3>Corotexus</h3>
+          <div class="desc"> In vielen Dimensionen unterwegs und </div>
+          <div class="creator-links">
+            <a href="https://www.youtube.com/channel/UCreXR_YqWRJHpOzNcppIczA" target="_blank" class="creator-link-btn youtube">YouTube</a>
+            <a href="https://vm.tiktok.com/ZMe9MSWRP/" target="_blank" class="creator-link-btn tiktok">TikTok</a>
+            <a href="https://www.twitch.tv/corotexus2" target="_blank" class="creator-link-btn twitch">Twitch</a>
+          </div>
+        </div>
+        <div class="creator-card">
+          <img src="bild/team/leandost.png" alt="Leandost">
+          <h3>Leandost</h3>
+          <div class="desc">Beschreibung</div>
+          <div class="creator-links">
+            <a href="Noch Nichts" target="_blank" class="creator-link-btn youtube">YouTube</a>
+            <a href="Noch Nichts" target="_blank" class="creator-link-btn tiktok">TikTok</a>
+            <a href="Noch Nichts" target="_blank" class="creator-link-btn twitch">Twitch</a>
+          </div>
+        </div>
+        <div class="creator-card">
+          <img src="bild/creator/stevebuilds.jpg" alt="Creator 3">
+          <h3>Creator 3</h3>
+          <div class="desc">Beschreibung</div>
+          <div class="creator-links">
+            <a href="Noch Nichts" target="_blank" class="creator-link-btn youtube">YouTube</a>
+            <a href="Noch Nichts" target="_blank" class="creator-link-btn tiktok">TikTok</a>
+            <a href="Noch Nichts" target="_blank" class="creator-link-btn twitch">Twitch</a>
+          </div>
+        </div>
+        <div class="creator-card">
+          <img src="bild/creator/paulcraft.jpg" alt="Creator 4">
+          <h3>Creator 4</h3>
+          <div class="desc">Beschreibung</div>
+          <div class="creator-links">
+            <a href="Noch Nichts" target="_blank" class="creator-link-btn youtube">YouTube</a>
+            <a href="Noch Nichts" target="_blank" class="creator-link-btn tiktok">TikTok</a>
+            <a href="Noch Nichts" target="_blank" class="creator-link-btn twitch">Twitch</a>
+          </div>
+        </div>
+        <div class="creator-card">
+          <img src="Bewerber" alt="Bewerber">
+          <h3>Hier könnte dein Name stehen!</h3>
+          <div class="desc">Du möchtest auch Content Creator werden? Bewirb dich jetzt und werde Teil des Teams!</div>
+          <div class="creator-links">
+            <a href="bewerben.html" class="creator-link-btn" style="background:#f1c40f; color:#222;">Jetzt bewerben</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 ParadiseNetwork.us – Ein Projekt für die Community</p>
+  </footer>
+  <script>
+    // Darkmode persistent über localStorage
+    function toggleDarkMode() {
+      document.body.classList.toggle('darkmode');
+      if (document.body.classList.contains('darkmode')) {
+        localStorage.setItem('darkmode', '1');
+      } else {
+        localStorage.setItem('darkmode', '0');
+      }
+    }
+    if (localStorage.getItem('darkmode') === '1') {
+      document.body.classList.add('darkmode');
+    }
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    function closeNavOnResize() {
+      if (window.innerWidth > 900) {
+        nav.classList.remove('expanded');
+        nav.classList.remove('collapsed');
+        hamburger.classList.remove('active');
+      } else {
+        nav.classList.add('collapsed');
+        nav.classList.remove('expanded');
+        hamburger.classList.remove('active');
+      }
+    }
+    hamburger.addEventListener('click', function() {
+      if (nav.classList.contains('expanded')) {
+        nav.classList.remove('expanded');
+        nav.classList.add('collapsed');
+        hamburger.classList.remove('active');
+      } else {
+        nav.classList.add('expanded');
+        nav.classList.remove('collapsed');
+        hamburger.classList.add('active');
+      }
+    });
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) {
+          nav.classList.remove('expanded');
+          nav.classList.add('collapsed');
+          hamburger.classList.remove('active');
+        }
+      });
+    });
+    window.addEventListener('resize', closeNavOnResize);
+    window.addEventListener('DOMContentLoaded', closeNavOnResize);
+  </script>
+</body>
+</html>

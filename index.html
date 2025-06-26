@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ParadiseNetwork.us</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+  <button class="hamburger" id="hamburger" aria-label="Navigation öffnen/schließen">
+    <span></span>
+  </button>
+  <header>
+    <h1>Willkommen zu ParadiseNetwork</h1>
+    <p>Dein Deutscher Minecraft Freebuild Server – ParadiseNetwork.us</p>
+  </header>
+
+  <nav id="mainNav" class="collapsed">
+    <a href="index.html">Startseite</a>
+    <a href="infos.html">Infos</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="guides.html">Guides & Hilfe</a>
+    <a href="events.html">Events</a>
+    <a href="karte.html">Karte</a>
+    <a href="bewerben.html">Bewerben</a>
+    <a href="creator.html">Content Creator</a>
+    <a href="social.html">Social Media</a>
+  </nav>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="card" style="text-align:center; position:relative;">
+      <h2 style="font-size:2.2rem; margin-bottom:0.5rem;">Willkommen auf ParadiseNetwork.us</h2>
+      <p style="font-size:1.2rem; margin-bottom:1.5rem;">
+        ParadiseNetwork ist dein moderner deutscher Minecraft Freebuild Server für Java!<br>
+        Baue, handle, erlebe Abenteuer und werde Teil der ParadiseFamily.
+      </p>
+      <div style="margin-bottom:1.2rem;">
+        <span style="font-weight:bold; font-size:1.1rem;">Server-IP:</span>
+        <span id="server-ip" class="hero-ip">ParadiseNetwork.us</span>
+        <button onclick="copyIP()" class="hero-copy-btn">Kopieren</button>
+      </div>
+      <!-- Minecraft Serverstatus Widget -->
+      <div id="mc-status" style="margin-bottom:1.2rem; font-size:1rem;">
+        <span style="font-weight:bold;">Status:</span>
+        <span id="mc-status-text">Lade...</span>
+      </div>
+      <a href="bewerben.html" class="hero-cta">Jetzt bewerben</a>
+      <div>
+        <a href="https://discord.gg/qsM4tbsKv4" target="ParadiseNetwork.us Discord" class="hero-discord">
+          <span style="vertical-align:middle;">Discord beitreten</span>
+        </a>
+      </div>
+      <div style="margin-top:2rem;">
+        <img src="bild/paradi_tower.png" alt="ParadiseNetwork Titelscreen" style="max-width:100%; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+      </div>
+    </section>
+
+    <!-- FEATURE LIST -->
+    <section class="card" style="text-align:center;">
+      <h3 style="margin-top:0;">Was erwartet dich?</h3>
+      <ul class="feature-list">
+        <li class="feature-item">🏗️ Freebuild & Länder</li>
+        <li class="feature-item">🎉 Events & Jobs</li>
+        <li class="feature-item">🤝 Aktive Community & Team</li>
+        <li class="feature-item">🛒 Shops & Wirtschaft</li>
+        <li class="feature-item">📚 Guides & Hilfen</li>
+        <li class="feature-item">🌐 Java 1.21</li>
+      </ul>
+      <div style="margin-top:2rem;">
+        <img src="bild/paradi_gunter.png" alt="ParadiseNetwork Screenshot" style="max-width:100%; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+      </div>
+    </section>
+
+    <!-- KURZVORSTELLUNG -->
+    <section class="card" style="text-align:center;">
+      <h3>Was ist ParadiseNetwork?</h3>
+      <p>
+        ParadiseNetwork ist ein deutscher Minecraft Freebuild Server, der am 28. Juni 2025 startet. Unser Ziel: Ein freundlicher, Freebuild Server für alle Minecraft-Fans!  
+        <br>
+        <a href="ueber-uns.html" class="hero-cta" style="margin-top:1rem;">Mehr erfahren</a>
+      </p>
+    </section>
+
+    <!-- OPTIONAL: Discord Widget oder Serverstatus -->
+    <!--
+    <section class="card" style="text-align:center;">
+      <h3>Community & Support</h3>
+      <iframe src="https://discord.com/widget?id=YOUR_DISCORD_ID&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
+    </section>
+    -->
+  </main>
+
+  <footer>
+    <p>© 2025 ParadiseNetwork.us – Ein Projekt für die Community</p>
+  </footer>
+
+  <script>
+    // Darkmode persistent über localStorage
+    function toggleDarkMode() {
+      document.body.classList.toggle('darkmode');
+      if (document.body.classList.contains('darkmode')) {
+        localStorage.setItem('darkmode', '1');
+      } else {
+        localStorage.setItem('darkmode', '0');
+      }
+    }
+    // Beim Laden prüfen
+    if (localStorage.getItem('darkmode') === '1') {
+      document.body.classList.add('darkmode');
+    }
+
+    // Server-IP kopieren
+    function copyIP() {
+      const ip = document.getElementById('server-ip').textContent;
+      navigator.clipboard.writeText(ip).then(() => {
+        alert('Server-IP kopiert!');
+      });
+    }
+
+    // Minecraft Serverstatus Widget (mcapi.us)
+    function updateMcStatus() {
+      fetch('https://api.mcsrvstat.us/2/ParadiseNetwork.us')
+        .then(res => res.json())
+        .then(data => {
+          const statusText = document.getElementById('mc-status-text');
+          if (data && data.online) {
+            statusText.textContent = `Online (${data.players.online}/${data.players.max} Spieler)`;
+            statusText.style.color = 'limegreen';
+          } else {
+            statusText.textContent = 'Offline';
+            statusText.style.color = 'red';
+          }
+        })
+        .catch(() => {
+          const statusText = document.getElementById('mc-status-text');
+          statusText.textContent = 'Status unbekannt';
+          statusText.style.color = 'gray';
+        });
+    }
+    updateMcStatus();
+
+    // Responsive Navigation
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+
+    function closeNavOnResize() {
+      if (window.innerWidth > 900) {
+        nav.classList.remove('expanded');
+        nav.classList.remove('collapsed');
+        hamburger.classList.remove('active');
+      } else {
+        nav.classList.add('collapsed');
+        nav.classList.remove('expanded');
+        hamburger.classList.remove('active');
+      }
+    }
+
+    hamburger.addEventListener('click', function() {
+      if (nav.classList.contains('expanded')) {
+        nav.classList.remove('expanded');
+        nav.classList.add('collapsed');
+        hamburger.classList.remove('active');
+      } else {
+        nav.classList.add('expanded');
+        nav.classList.remove('collapsed');
+        hamburger.classList.add('active');
+      }
+    });
+
+    // Schließe Menü beim Klick auf Link (nur mobil)
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) {
+          nav.classList.remove('expanded');
+          nav.classList.add('collapsed');
+          hamburger.classList.remove('active');
+        }
+      });
+    });
+
+    window.addEventListener('resize', closeNavOnResize);
+    window.addEventListener('DOMContentLoaded', closeNavOnResize);
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Media – ParadiseNetwork.us</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+  <button class="hamburger" id="hamburger" aria-label="Navigation öffnen/schließen"><span></span></button>
+  <header>
+    <h1>Social Media</h1>
+    <p>Folge uns auf TikTok, Instagram, YouTube und bleib in Verbindung!</p>
+  </header>
+  <nav id="mainNav" class="collapsed">
+    <a href="index.html">Startseite</a>
+    <a href="infos.html">Infos</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="guides.html">Guides & Hilfe</a>
+    <a href="events.html">Events</a>
+    <a href="karte.html">Karte</a>
+    <a href="bewerben.html">Bewerben</a>
+    <a href="creator.html">Content Creator</a>
+    <a href="social.html">Social Media</a>
+  </nav>
+  <main>
+    <section class="card">
+      <h2>Social Media</h2>
+      <p>Folge uns auf TikTok, Instagram, YouTube und bleib in Verbindung!</p>
+      <!-- Social Links, ggf. Social Feed -->
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 ParadiseNetwork.us – Ein Projekt für die Community</p>
+  </footer>
+  <script>
+    // Darkmode persistent über localStorage
+    function toggleDarkMode() {
+      document.body.classList.toggle('darkmode');
+      if (document.body.classList.contains('darkmode')) {
+        localStorage.setItem('darkmode', '1');
+      } else {
+        localStorage.setItem('darkmode', '0');
+      }
+    }
+    if (localStorage.getItem('darkmode') === '1') {
+      document.body.classList.add('darkmode');
+    }
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    function closeNavOnResize() {
+      if (window.innerWidth > 900) {
+        nav.classList.remove('expanded');
+        nav.classList.remove('collapsed');
+        hamburger.classList.remove('active');
+      } else {
+        nav.classList.add('collapsed');
+        nav.classList.remove('expanded');
+        hamburger.classList.remove('active');
+      }
+    }
+    hamburger.addEventListener('click', function() {
+      if (nav.classList.contains('expanded')) {
+        nav.classList.remove('expanded');
+        nav.classList.add('collapsed');
+        hamburger.classList.remove('active');
+      } else {
+        nav.classList.add('expanded');
+        nav.classList.remove('collapsed');
+        hamburger.classList.add('active');
+      }
+    });
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) {
+          nav.classList.remove('expanded');
+          nav.classList.add('collapsed');
+          hamburger.classList.remove('active');
+        }
+      });
+    });
+    window.addEventListener('resize', closeNavOnResize);
+    window.addEventListener('DOMContentLoaded', closeNavOnResize);
+  </script>
+</body>
+</html>

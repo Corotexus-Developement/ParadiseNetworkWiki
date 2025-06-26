@@ -1,0 +1,397 @@
+:root {
+  --primary: #2ecc71;
+  --accent: #f1c40f;
+  --bg-light: #fefefa;
+  --bg-dark: #121212;
+  --text-light: #ffffff;
+  --text-dark: #1e1e1e;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+}
+
+header {
+  background: linear-gradient(90deg, #00c896, #4be3a8);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  background-image: url('https://cdn.pixabay.com/photo/2016/11/22/20/07/beach-1852945_1280.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+nav {
+  background-color: #28b485;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+  max-height: 1000px;
+}
+
+nav.collapsed {
+  max-height: 0;
+  padding: 0;
+  border: none;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 1rem;
+  display: block;
+  transition: background 0.2s;
+}
+
+nav a:hover {
+  background-color: #1c9b6f;
+}
+
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 1.2rem;
+  left: 1rem;
+  z-index: 1001;
+  width: 40px;
+  height: 40px;
+  background: #28b485;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger span,
+.hamburger span::before,
+.hamburger span::after {
+  display: block;
+  background: #fff;
+  height: 4px;
+  width: 26px;
+  border-radius: 2px;
+  position: absolute;
+  transition: all 0.3s;
+  content: '';
+}
+.hamburger span {
+  position: relative;
+}
+.hamburger span::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 0;
+  width: 26px;
+  height: 4px;
+  background: #fff;
+}
+.hamburger span::after {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 0;
+  width: 26px;
+  height: 4px;
+  background: #fff;
+}
+
+/* Hamburger Animation (open/close) */
+.hamburger.active span {
+  background: transparent;
+}
+.hamburger.active span::before {
+  transform: translateY(9px) rotate(45deg);
+}
+.hamburger.active span::after {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+  nav {
+    flex-direction: column;
+    align-items: stretch;
+    max-height: 0;
+    padding: 0;
+    border: none;
+  }
+  nav.expanded {
+    max-height: 600px;
+    border-bottom: 1px solid #1c9b6f;
+  }
+  .hamburger {
+    display: flex;
+  }
+  nav a {
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+}
+
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Feature-List & Hero-Section Anpassungen */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.feature-item {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  min-width: 180px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  color: var(--text-dark);
+  transition: background 0.3s, color 0.3s;
+}
+.hero-ip {
+  background: #f1f1f1;
+  color: var(--text-dark);
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  font-family: monospace;
+  transition: background 0.3s, color 0.3s;
+}
+.hero-copy-btn {
+  margin-left: 0.5rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.hero-cta {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--text-dark);
+  font-weight: bold;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-bottom: 1.2rem;
+  transition: background 0.2s, color 0.2s;
+}
+.hero-discord {
+  display: inline-block;
+  background: #5865F2;
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  transition: background 0.2s;
+}
+
+/* Darkmode Anpassungen */
+.darkmode .card {
+  background-color: #1e1e1e;
+  color: var(--text-light);
+}
+.darkmode .feature-item {
+  background: #23272b;
+  color: var(--text-light);
+}
+.darkmode .hero-ip {
+  background: #23272b;
+  color: var(--text-light);
+}
+.darkmode .hero-cta {
+  background: var(--accent);
+  color: var(--text-dark);
+}
+.darkmode .hero-copy-btn {
+  background: var(--primary);
+  color: #fff;
+}
+.darkmode .hero-discord {
+  background: #4752c4;
+  color: #fff;
+}
+.darkmode .events-mc-title,
+.darkmode .event-mc-header,
+.darkmode .event-mc-body {
+  color: #fff;
+}
+.darkmode .event-mc-block {
+  background: #23272b !important;
+  border-color: #444;
+}
+.darkmode .event-mc-header {
+  background: #2c3e50 !important;
+  border-bottom: 1px solid #444;
+}
+.darkmode .event-mc-block.past {
+  opacity: 0.6;
+}
+.darkmode .calendar-table-mc {
+  background: #23272b;
+  color: #fff;
+}
+.darkmode .calendar-table-mc th,
+.darkmode .calendar-table-mc td {
+  border-color: #444;
+}
+.darkmode .event-mc-day {
+  background: #43a047;
+  color: #fff;
+}
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.darkmode {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.darkmode .card {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: #f39c12;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 2000;
+}
+
+/* Minecraft Event Styles */
+.events-mc-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.events-mc-overview, .events-mc-history {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.event-mc-block {
+  border: 2px solid #bdbdbd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #0001;
+  width: 320px;
+  min-width: 220px;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 300px;
+}
+.event-mc-header {
+  padding: 0.5rem 1rem;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  border-bottom: 1px solid #ccc;
+  border-radius: 8px 8px 0 0;
+}
+.event-mc-icon {
+  font-size: 1.5em;
+}
+.event-mc-body {
+  padding: 0.5rem 1rem;
+}
+.event-mc-block.past {
+  opacity: 0.7;
+}
+.events-mc-calendar {
+  margin: 2rem 0;
+}
+.calendar-table-wrapper {
+  overflow-x: auto;
+}
+.calendar-table-mc {
+  width: 100%;
+  min-width: 350px;
+  border-collapse: collapse;
+  margin-bottom: 0.5rem;
+  background: #fafafa;
+}
+.calendar-table-mc th, .calendar-table-mc td {
+  border: 1px solid #bdbdbd;
+  text-align: center;
+  padding: 0.3em;
+  min-width: 32px;
+}
+.event-mc-day {
+  background: #7ec850;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+}
+@media (max-width: 900px) {
+  .events-mc-overview, .events-mc-history {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .event-mc-block {
+    width: 100%;
+    min-width: 0;
+  }
+  .calendar-table-mc {
+    font-size: 0.95em;
+  }
+}
+@media (max-width: 600px) {
+  .events-mc-calendar {
+    margin: 1rem 0;
+  }
+  .calendar-table-mc th, .calendar-table-mc td {
+    padding: 0.2em;
+    min-width: 24px;
+  }
+  .events-mc-title {
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events – ParadiseNetwork.us</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+  <button class="hamburger" id="hamburger" aria-label="Navigation öffnen/schließen"><span></span></button>
+  <header>
+    <h1>Events</h1>
+    <p>Alle laufenden, geplanten und vergangenen Events mit Kalenderübersicht.</p>
+  </header>
+  <nav id="mainNav" class="collapsed">
+    <a href="index.html">Startseite</a>
+    <a href="infos.html">Infos</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="guides.html">Guides & Hilfe</a>
+    <a href="events.html">Events</a>
+    <a href="karte.html">Karte</a>
+    <a href="bewerben.html">Bewerben</a>
+    <a href="creator.html">Content Creator</a>
+    <a href="social.html">Social Media</a>
+  </nav>
+  <main>
+    <section class="card">
+      <h2>Events</h2>
+      <p>Alle laufenden, geplanten und vergangenen Events mit Kalenderübersicht.</p>
+      <!-- Eventliste, Rückblicke -->
+    </section>
+    <section class="card events-mc">
+      <h3 class="events-mc-title"><span style="font-family: 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;">🗓️</span> Übersicht</h3>
+      <div class="events-mc-overview">
+        <div class="event-mc-block" style="background:#e3f6d5;">
+          <div class="event-mc-header" style="background:#7ec850;">
+            <span class="event-mc-icon">🎉</span>
+            <strong>Sommerfest</strong>
+          </div>
+          <div class="event-mc-body">
+            <span>Datum Uhrzeit</span><br>
+            <span>Ort: Spawnplatz</span>
+            <p>Feiere mit uns den Sommer! Mit Minispielen, Giveaways und mehr.</p>
+          </div>
+        </div>
+        <div class="event-mc-block" style="background:#fffbe3;">
+          <div class="event-mc-header" style="background:#f7d560;">
+            <span class="event-mc-icon">🏆</span>
+            <strong>Bau-Contest: Fantasy</strong>
+          </div>
+          <div class="event-mc-body">
+            <span>Datum Uhrzeit</span><br>
+            <span>Ort: Freebuild</span>
+            <p>Zeige deine Kreativität und gewinne tolle Preise!</p>
+          </div>
+        </div>
+      </div>
+      <div class="events-mc-calendar">
+        <h4><span style="font-family: 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;">📅</span> Juli 2025</h4>
+        <div class="calendar-table-wrapper">
+          <table class="calendar-table-mc">
+            <thead>
+              <tr>
+                <th>Mo</th><th>Di</th><th>Mi</th><th>Do</th><th>Fr</th><th>Sa</th><th>So</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+              </tr>
+              <tr>
+                <td>7</td><td>8</td><td>9</td><td>10</td><td>11</td>
+                <td class="event-mc-day" title="Sommerfest">12</td>
+                <td>13</td>
+              </tr>
+              <tr>
+                <td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
+              </tr>
+              <tr>
+                <td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td>
+              </tr>
+              <tr>
+                <td>28</td><td>29</td><td>30</td><td>31</td><td></td><td></td><td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <small>🟩 = Event-Tag</small>
+      </div>
+      <div class="events-mc-history">
+        <h4><span style="font-family: 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;">⏳</span> Vergangene Events</h4>
+        <div class="event-mc-block past" style="background:#e3f0fa;">
+          <div class="event-mc-header" style="background:#b5e0fa;">
+            <span class="event-mc-icon">🥚</span>
+            <strong>Event 1</strong>
+          </div>
+          <div class="event-mc-body">
+            <span>Event Ende</span>
+            <p>Hier könnte stehen was beim Event war.</p>
+          </div>
+        </div>
+        <div class="event-mc-block past" style="background:#f0f0f0;">
+          <div class="event-mc-header" style="background:#e0e0e0;">
+            <span class="event-mc-icon">❄️</span>
+            <strong>Event 2</strong>
+          </div>
+          <div class="event-mc-body">
+            <span>Eventzeit</span>
+            <p>Hier ist Platz für ein weiteres cooles Event.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 ParadiseNetwork.us – Ein Projekt für die Community</p>
+  </footer>
+  <script>
+    // Darkmode persistent über localStorage
+    function toggleDarkMode() {
+      document.body.classList.toggle('darkmode');
+      if (document.body.classList.contains('darkmode')) {
+        localStorage.setItem('darkmode', '1');
+      } else {
+        localStorage.setItem('darkmode', '0');
+      }
+    }
+    if (localStorage.getItem('darkmode') === '1') {
+      document.body.classList.add('darkmode');
+    }
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    function closeNavOnResize() {
+      if (window.innerWidth > 900) {
+        nav.classList.remove('expanded');
+        nav.classList.remove('collapsed');
+        hamburger.classList.remove('active');
+      } else {
+        nav.classList.add('collapsed');
+        nav.classList.remove('expanded');
+        hamburger.classList.remove('active');
+      }
+    }
+    hamburger.addEventListener('click', function() {
+      if (nav.classList.contains('expanded')) {
+        nav.classList.remove('expanded');
+        nav.classList.add('collapsed');
+        hamburger.classList.remove('active');
+      } else {
+        nav.classList.add('expanded');
+        nav.classList.remove('collapsed');
+        hamburger.classList.add('active');
+      }
+    });
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) {
+          nav.classList.remove('expanded');
+          nav.classList.add('collapsed');
+          hamburger.classList.remove('active');
+        }
+      });
+    });
+    window.addEventListener('resize', closeNavOnResize);
+    window.addEventListener('DOMContentLoaded', closeNavOnResize);
+  </script>
+</body>
+</html>

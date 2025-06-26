@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guides & Hilfe – ParadiseNetwork.us</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .guide-accordion {
+      max-width: 900px;
+      margin: 2rem auto;
+    }
+    .guide-section {
+      background: #f5f5f5;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin-bottom: 1.2rem;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+    .guide-section-header {
+      cursor: pointer;
+      padding: 1.1rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      background: #eaeaea;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      outline: none;
+    }
+    .guide-section-header .arrow {
+      font-size: 1.3rem;
+      transition: transform 0.2s;
+    }
+    .guide-section.open .guide-section-header .arrow {
+      transform: rotate(90deg);
+    }
+    .guide-section-content {
+      display: none;
+      padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+      background: #fff;
+    }
+    .guide-section.open .guide-section-content {
+      display: block;
+    }
+    .faq-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .faq-list li {
+      margin-bottom: 1rem;
+    }
+    .faq-q {
+      font-weight: bold;
+      color: var(--primary);
+    }
+    .faq-a {
+      margin-left: 0.5rem;
+      display: block;
+    }
+    .cmd-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .cmd-list li {
+      margin-bottom: 0.7rem;
+      font-family: monospace;
+      color: #2ecc71;
+    }
+    .cmd-desc {
+      font-family: inherit;
+      color: #333;
+      margin-left: 0.5rem;
+    }
+    .tips-list {
+      list-style: disc inside;
+      margin: 0 0 0 1rem;
+      padding: 0;
+    }
+    @media (max-width: 700px) {
+      .guide-section-content { padding: 1rem; }
+    }
+    .darkmode .guide-section { background: #23272b; }
+    .darkmode .guide-section-header { background: #23272b; color: #fff; }
+    .darkmode .guide-section-content { background: #181a1b; color: #fff; }
+  </style>
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+  <button class="hamburger" id="hamburger" aria-label="Navigation öffnen/schließen"><span></span></button>
+  <header>
+    <h1>Guides & Hilfe</h1>
+    <p>Praktische Tutorials, Hilfestellungen und PDF-Downloads für dein Abenteuer.</p>
+  </header>
+  <nav id="mainNav" class="collapsed">
+    <a href="index.html">Startseite</a>
+    <a href="infos.html">Infos</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="guides.html">Guides & Hilfe</a>
+    <a href="events.html">Events</a>
+    <a href="karte.html">Karte</a>
+    <a href="bewerben.html">Bewerben</a>
+    <a href="creator.html">Content Creator</a>
+    <a href="social.html">Social Media</a>
+  </nav>
+  <main>
+    <section class="card">
+      <h2>Guides & Hilfe</h2>
+      <p>Praktische Tutorials, Hilfestellungen und PDF-Downloads für dein Abenteuer.</p>
+    </section>
+
+    <div class="guide-accordion">
+      <div class="guide-section">
+        <button class="guide-section-header" type="button">
+          <span>FAQ – Häufige Fragen</span>
+          <span class="arrow">&#9654;</span>
+        </button>
+        <div class="guide-section-content">
+          <ul class="faq-list">
+            <li>
+              <span class="faq-q">Wie bekomme ich ein Land?</span>
+              <span class="faq-a">Nutze <b>/lands create < dein Landname ></b> oder frage im Discord nach freien Plots.</span>
+            </li>
+            <li>
+              <span class="faq-q">Wie verkaufe ich meine Items?</span>
+              <span class="faq-a">Mit <b>/sellgui</b> öffnest du den Verkaufsbereich. Alle Items die du dort ablegst werden verkauft.</span>
+            </li>
+            <li>
+              <span class="faq-q">Wie kann ich das Team erreichen?</span>
+              <span class="faq-a">Über Discord oder das <a href="bewerben.html">Bewerbungsformular</a>.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="guide-section">
+        <button class="guide-section-header" type="button">
+          <span>Minecraft Befehle & Funktionen</span>
+          <span class="arrow">&#9654;</span>
+        </button>
+        <div class="guide-section-content">
+          <ul class="cmd-list">
+            <li>/spawn <span class="cmd-desc">Teleportiert dich zum Hauptspawn.</span></li>
+            <li>/sethome <span class="cmd-desc">Setzt deinen Heimatpunkt.</span></li>
+            <li>/home <span class="cmd-desc">Teleportiert dich zu deinem Heimatpunkt.</span></li>
+            <li>/warps </name> <span class="cmd-desc">Zeigt dir mögliche Teleportationspunkte an.</span></li>
+            <li>/lands <span class="cmd-desc">Öffnet das Landsystem.</span></li>
+            <li>/pay [Name] [Betrag] <span class="cmd-desc">Zahle einem Spieler Geld.</span></li>
+            <li>/jobs <span class="cmd-desc">Zeigt alle verfügbaren Jobs.</span></li>
+            <li>/sellgui <span class="cmd-desc">Öffnet den verkaufsbereich.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="guide-section">
+        <button class="guide-section-header" type="button">
+          <span>Tipps & Tricks</span>
+          <span class="arrow">&#9654;</span>
+        </button>
+        <div class="guide-section-content">
+          <ul class="tips-list">
+            <li>Nutze <b>/sethome</b> an wichtigen Orten, um später immer schnell zurückzukehren.</li>
+            <li>Verkaufe überschüssige Items mit /sellgui oder an andere Spieler.</li>
+            <li>Schließe dich mit Freunden zusammen und gründe ein Land oder Nation!</li>
+            <li>Halte Ausschau nach Events – es gibt oft tolle Preise zu gewinnen.</li>
+            <li>Frage bei Problemen einfach im Discord nach Hilfe.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="guide-section">
+        <button class="guide-section-header" type="button">
+          <span>Downloads & Ressourcen</span>
+          <span class="arrow">&#9654;</span>
+        </button>
+        <div class="guide-section-content">
+          <ul>
+            <li><a href="#">PDF: Serverregeln</a></li>
+            <li><a href="#">PDF: Grundstück-Guide</a></li>
+            <li><a href="#">PDF: Wirtschaft & Jobs</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="guide-section">
+        <button class="guide-section-header" type="button">
+          <span>Video Tutorials</span>
+          <span class="arrow">&#9654;</span>
+        </button>
+        <div class="guide-section-content">
+          <ul style="list-style: none; padding: 0;">
+            <li>
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+                🟢 So Verwaltest du dein Land – Video ansehen
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/watch?v=QH2-TGUlwu4" target="_blank">
+                🟢 So funktioniert dies das 1 – Video ansehen
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/watch?v=3GwjfUFyY6M" target="_blank">
+                🟢 So funktioniert dies das 2 – Video ansehen
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/@ParadiseNetwork" target="_blank">
+                ➕ Weitere Tutorials findest du hier
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>© 2025 ParadiseNetwork.us – Ein Projekt für die Community</p>
+  </footer>
+  <script>
+    // Darkmode persistent über localStorage
+    function toggleDarkMode() {
+      document.body.classList.toggle('darkmode');
+      if (document.body.classList.contains('darkmode')) {
+        localStorage.setItem('darkmode', '1');
+      } else {
+        localStorage.setItem('darkmode', '0');
+      }
+    }
+    if (localStorage.getItem('darkmode') === '1') {
+      document.body.classList.add('darkmode');
+    }
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    function closeNavOnResize() {
+      if (window.innerWidth > 900) {
+        nav.classList.remove('expanded');
+        nav.classList.remove('collapsed');
+        hamburger.classList.remove('active');
+      } else {
+        nav.classList.add('collapsed');
+        nav.classList.remove('expanded');
+        hamburger.classList.remove('active');
+      }
+    }
+    hamburger.addEventListener('click', function() {
+      if (nav.classList.contains('expanded')) {
+        nav.classList.remove('expanded');
+        nav.classList.add('collapsed');
+        hamburger.classList.remove('active');
+      } else {
+        nav.classList.add('expanded');
+        nav.classList.remove('collapsed');
+        hamburger.classList.add('active');
+      }
+    });
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) {
+          nav.classList.remove('expanded');
+          nav.classList.add('collapsed');
+          hamburger.classList.remove('active');
+        }
+      });
+    });
+    window.addEventListener('resize', closeNavOnResize);
+    window.addEventListener('DOMContentLoaded', closeNavOnResize);
+
+    // Accordion Funktionalität
+    document.querySelectorAll('.guide-section-header').forEach(header => {
+      header.addEventListener('click', function() {
+        const section = header.closest('.guide-section');
+        section.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
