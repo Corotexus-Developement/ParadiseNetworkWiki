@@ -395,3 +395,20 @@ footer {
     font-size: 1.2rem;
   }
 }
+
+/* Info-Box für aktuelle Infos (Light & Darkmode optimiert) */
+.info-box {
+  background: #fffbe6;
+  border-left: 4px solid #ffd700;
+  color: #333;
+  padding: 1rem 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+body.darkmode .info-box {
+  background: #2a2a1a;
+  border-left: 4px solid #ffe066;
+  color: #fffbe6;
+}

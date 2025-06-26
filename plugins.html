@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plugins | ParadiseNetwork Wiki</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav id="mainNav" class="collapsed">
+    <a href="index.html">Startseite</a>
+    <a href="inhaltsverzeichnis.html">Inhaltsverzeichnis</a>
+    <a href="guides.html">Guides</a>
+    <a href="tipps.html">Tipps & Tricks</a>
+    <a href="plugins.html">Plugins</a>
+    <a href="videos.html">Videos</a>
+    <a href="ressourcen.html">Ressourcen</a>
+    <a href="regelwerk.html">Regelwerk</a>
+    <a href="staedte.html">Städte</a>
+    <a href="laender.html">Länder</a>
+    <a href="nationen.html">Nationen</a>
+    <a href="spieler.html">Spieler</a>
+  </nav>
+  <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+  <button class="hamburger" id="hamburger" aria-label="Navigation öffnen/schließen">
+    <span></span>
+  </button>
+  <main>
+    <section class="card">
+      <h2>Plugins</h2>
+      <p>Hier findest du Informationen zu den wichtigsten Plugins auf ParadiseNetwork.</p>
+    </section>
+  </main>
+  <script>
+    // Darkmode persistent über localStorage
+    function toggleDarkMode() {
+      document.body.classList.toggle('darkmode');
+      if (document.body.classList.contains('darkmode')) {
+        localStorage.setItem('darkmode', '1');
+      } else {
+        localStorage.setItem('darkmode', '0');
+      }
+    }
+    if (localStorage.getItem('darkmode') === '1') {
+      document.body.classList.add('darkmode');
+    }
+    // Responsive Navigation
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('mainNav');
+    function closeNavOnResize() {
+      if (window.innerWidth > 900) {
+        nav.classList.remove('expanded');
+        nav.classList.remove('collapsed');
+        hamburger.classList.remove('active');
+      } else {
+        nav.classList.add('collapsed');
+        nav.classList.remove('expanded');
+        hamburger.classList.remove('active');
+      }
+    }
+    hamburger.addEventListener('click', function() {
+      if (nav.classList.contains('expanded')) {
+        nav.classList.remove('expanded');
+        nav.classList.add('collapsed');
+        hamburger.classList.remove('active');
+      } else {
+        nav.classList.add('expanded');
+        nav.classList.remove('collapsed');
+        hamburger.classList.add('active');
+      }
+    });
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) {
+          nav.classList.remove('expanded');
+          nav.classList.add('collapsed');
+          hamburger.classList.remove('active');
+        }
+      });
+    });
+    window.addEventListener('resize', closeNavOnResize);
+    window.addEventListener('DOMContentLoaded', closeNavOnResize);
+  </script>
+</body>
+</html>

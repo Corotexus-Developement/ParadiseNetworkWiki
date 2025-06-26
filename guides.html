@@ -94,22 +94,26 @@
 </head>
 <body>
   <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
-  <button class="hamburger" id="hamburger" aria-label="Navigation öffnen/schließen"><span></span></button>
+  <button class="hamburger" id="hamburger" aria-label="Navigation öffnen/schließen">
+    <span></span>
+  </button>
   <header>
     <h1>Guides & Hilfe</h1>
     <p>Praktische Tutorials, Hilfestellungen und PDF-Downloads für dein Abenteuer.</p>
   </header>
   <nav id="mainNav" class="collapsed">
     <a href="index.html">Startseite</a>
-    <a href="infos.html">Infos</a>
-    <a href="ueber-uns.html">Über uns</a>
-    <a href="galerie.html">Galerie</a>
-    <a href="guides.html">Guides & Hilfe</a>
-    <a href="events.html">Events</a>
-    <a href="karte.html">Karte</a>
-    <a href="bewerben.html">Bewerben</a>
-    <a href="creator.html">Content Creator</a>
-    <a href="social.html">Social Media</a>
+    <a href="inhaltsverzeichnis.html">Inhaltsverzeichnis</a>
+    <a href="guides.html">Guides</a>
+    <a href="tipps.html">Tipps & Tricks</a>
+    <a href="plugins.html">Plugins</a>
+    <a href="videos.html">Videos</a>
+    <a href="ressourcen.html">Ressourcen</a>
+    <a href="regelwerk.html">Regelwerk</a>
+    <a href="staedte.html">Städte</a>
+    <a href="laender.html">Länder</a>
+    <a href="nationen.html">Nationen</a>
+    <a href="spieler.html">Spieler</a>
   </nav>
   <main>
     <section class="card">
@@ -234,6 +238,7 @@
     if (localStorage.getItem('darkmode') === '1') {
       document.body.classList.add('darkmode');
     }
+    // Responsive Navigation
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('mainNav');
     function closeNavOnResize() {
