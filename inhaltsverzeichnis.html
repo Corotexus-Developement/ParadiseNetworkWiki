@@ -28,9 +28,37 @@
   <main>
     <section class="card">
       <h2>Inhaltsverzeichnis</h2>
-      <p>Hier findest du die Übersicht aller Wiki-Bereiche des ParadiseNetwork Servers.</p>
-      <!-- Hier kann ein automatisch generiertes Inhaltsverzeichnis entstehen -->
+      <p>Hier findest du die Übersicht aller Wiki-Bereiche des ParadiseNetwork Servers. Nutze die Suche, um gezielt nach Themen zu suchen.</p>
+      <input type="text" id="searchInput" placeholder="Suche nach Begriffen..." style="width:100%;padding:0.5rem;margin-bottom:1rem;">
+      <ul id="tocList" style="list-style:none;padding:0;">
+        <li><a href="index.html"><b>Startseite</b></a> – Übersicht und Vorstellung des Wikis & Servers.</li>
+        <li><a href="guides.html"><b>Guides</b></a> – Ausführliche Anleitungen und Erklärungen zu allen wichtigen Themen.</li>
+        <li><a href="tipps.html"><b>Tipps & Tricks</b></a> – Hilfreiche Tipps für Einsteiger und Fortgeschrittene.</li>
+        <li><a href="plugins.html"><b>Plugins</b></a> – Übersicht und Erklärung unserer Server-Plugins.</li>
+        <li><a href="videos.html"><b>Videos</b></a> – Tutorials, Guides und mehr als Video.</li>
+        <li><a href="ressourcen.html"><b>Ressourcen</b></a> – Downloads, PDFs und Minecraft-spezifische Ressourcen.</li>
+        <li><a href="regelwerk.html"><b>Regelwerk</b></a> – Die aktuellen Serverregeln.</li>
+        <li><a href="staedte.html"><b>Städte</b></a> – Vorstellung und Biografien der Community-Städte.</li>
+        <li><a href="laender.html"><b>Länder</b></a> – Vorstellung und Biografien der Community-Länder.</li>
+        <li><a href="nationen.html"><b>Nationen</b></a> – Vorstellung und Biografien der Community-Nationen.</li>
+        <li><a href="spieler.html"><b>Spieler</b></a> – (Optional) Übersicht aktiver Spieler.</li>
+        <li><a href="karte.html"><b>Karte</b></a> – Unsere interaktive Serverkarte.</li>
+      </ul>
     </section>
+    <script>
+      // Einfache Suchfunktion für das Inhaltsverzeichnis
+      document.getElementById('searchInput').addEventListener('input', function() {
+        const filter = this.value.toLowerCase();
+        const items = document.querySelectorAll('#tocList li');
+        items.forEach(item => {
+          if(item.textContent.toLowerCase().includes(filter)) {
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    </script>
   </main>
   <script>
     // Darkmode persistent über localStorage
