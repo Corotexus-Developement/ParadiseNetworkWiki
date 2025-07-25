@@ -3,36 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inhaltsverzeichnis | ParadiseNetwork Wiki</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <nav id="mainNav" class="collapsed">
-    <a href="index.html">Startseite</a>
-    <a href="inhaltsverzeichnis.html">Inhaltsverzeichnis</a>
-    <a href="guides.html">Guides</a>
-    <a href="tipps.html">Tipps & Tricks</a>
-    <a href="plugins.html">Plugins</a>
-    <a href="videos.html">Videos</a>
-    <a href="ressourcen.html">Ressourcen</a>
-    <a href="regelwerk.html">Regelwerk</a>
-    <a href="staedte.html">Städte</a>
-    <a href="laender.html">Länder</a>
-    <a href="nationen.html">Nationen</a>
-    <a href="spieler.html">Spieler</a>
-  </nav>
-  <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
-  <button class="hamburger" id="hamburger" aria-label="Navigation öffnen/schließen">
-    <span></span>
-  </button>
-  <main>
-
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ParadiseNetwork Wiki – Inhaltsverzeichnis</title>
+  <title>ParadiseNetwork Wiki – Titel</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -42,7 +13,7 @@
   </button>
   <header>
     <h1>ParadiseNetwork Wiki</h1>
-    <p>Inhaltsverzeichnis & Schnellzugriff</p>
+    <p>Dein Nachschlagewerk für ParadiseNetwork.us</p>
   </header>
   <nav id="mainNav" class="collapsed">
     <a href="index.html">Startseite</a>
@@ -61,23 +32,42 @@
   </nav>
   <main>
     <section class="card">
-      <h2>Wiki-Bereiche</h2>
-      <ul style="font-size:1.1rem;">
-        <li><a href="guides.html">Guides</a> – Ausführliche Anleitungen zu allen Themen</li>
-        <li><a href="tipps.html">Tipps & Tricks</a> – Hilfreiche Tipps für Einsteiger & Profis</li>
-        <li><a href="plugins.html">Plugins</a> – Alle Server-Plugins erklärt</li>
-        <li><a href="videos.html">Videos</a> – Tutorials & Erklärvideos</li>
-        <li><a href="ressourcen.html">Ressourcen</a> – Downloads & nützliche Links</li>
-        <li><a href="regelwerk.html">Regelwerk</a> – Serverregeln</li>
-        <li><a href="staedte.html">Städte</a> – Community-Städte</li>
-        <li><a href="laender.html">Länder</a> – Community-Länder</li>
-        <li><a href="nationen.html">Nationen</a> – Community-Nationen</li>
-        <li><a href="spieler.html">Spieler</a> – Spielerübersicht</li>
-        <li><a href="karte.html">Karte</a> – Interaktive Serverkarte</li>
+      <h2>Oberfläche & Anzeigen im Spiel</h2>
+      <p>Am rechten Bildschirmrand findest du alle wichtigen Infos zu deinem Account und Status auf ParadiseNetwork:</p>
+      <ul style="margin-bottom:1.2rem;">
+        <li>🌐 <b>Server-Adresse</b></li>
+        <li>⭐ <b>Dein Rang</b></li>
+        <li>👤 <b>Dein Spielername</b></li>
+        <li>💰 <b>Bargeld</b></li>
+        <li>🏦 <b>Landbank-Vermögen</b></li>
       </ul>
-      <h3>Wie nutze ich das Wiki?</h3>
-      <p>Wähle einen Bereich aus dem Menü oder aus der Liste oben. Jeder Bereich enthält detaillierte Erklärungen, Bilder und ggf. Videos.<br>
-      Du kannst das Wiki auch durchsuchen (Strg+F) oder direkt im Inhaltsverzeichnis stöbern.</p>
+      <div class="info-box" style="background:#e3f2fd; color:#1565c0; border-left:4px solid #2196f3; padding:1rem; margin-bottom:1.5rem;">
+        <b>Tipp:</b> Alle Infos sind immer aktuell und werden automatisch aktualisiert!
+      </div>
+      <h3>Jobs & Fortschrittsanzeigen</h3>
+      <p>Wenn du einen Job ausübst (<code>/jobs</code>), siehst du am oberen Bildschirmrand eine Level-Leiste mit:</p>
+      <ul>
+        <li>🛠️ <b>Jobname</b></li>
+        <li>📈 <b>Verdiente XP</b></li>
+        <li>💸 <b>Verdientes Geld</b></li>
+      </ul>
+      <div class="info-box" style="background:#f9fbe7; color:#444; border-left:4px solid #f1c40f; padding:1rem; margin-bottom:1.5rem;">
+        <b>Special Orders:</b> Wenn du eine aktive Special Order hast, erscheint eine zusätzliche Anzeige über der Level-Leiste, z.B. <i>Eichenholzstamm 10 / 64</i>.
+      </div>
+      <h4>Wichtig zu Special Orders</h4>
+      <ul>
+        <li>⚠️ <b>Bug?</b> Wird ein geforderter Gegenstand nicht angezeigt, melde dies bitte im Discord via Ticket.</li>
+        <li>🚫 <b>So funktioniert es NICHT:</b> Du platzierst einen Eichenholzstamm und baust ihn wieder ab.</li>
+        <li>✔️ <b>So funktioniert es:</b> Du pflanzt einen Eichenbaumsetzling, lässt ihn wachsen und baust die Stämme ab.</li>
+      </ul>
+      <div style="text-align:center; margin:1.2rem 0;">
+        <img src="bild/" alt="Special Order Beispiel" style="max-width:340px; border-radius:8px; box-shadow:0 2px 8px #0002;">
+        <div style="font-size:0.95rem; color:#555; margin-top:0.3rem;">Beispiel: So sieht die Anzeige für Special Orders aus</div>
+      </div>
+      <div class="info-box" style="background:#e8f5e9; color:#256029; border-left:4px solid #2ecc71; padding:1rem; margin-bottom:1.5rem;">
+        <b>Fazit:</b> Nur natürlich generierte Ressourcen zählen für <code>/jobs Special Orders</code>!
+      </div>
+      <p>Weitere Infos findest du im Bereich <a href="guides.html">Jobs</a>.</p>
     </section>
   </main>
   <footer>
